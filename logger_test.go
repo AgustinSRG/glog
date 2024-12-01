@@ -364,28 +364,3 @@ func TestCreateChildLogger(t *testing.T) {
 	assert.Equal(t, lastLog, "[PREFIX] [P2] test message")
 	assert.Equal(t, lastLogLevel, INFO)
 }
-
-func dummy() {
-	// Create a root logger
-	logger := CreateRootLogger(CreateLoggerConfigurationFromLevel(INFO), StandardLogFunction)
-
-	// Log messages
-	logger.Info("Example log message")
-
-	// You can also log with format
-	logger.Infof("Example log message: %v, %v, %v", 4, "example string", true)
-
-	// If you log a level that is not enabled, no logs will be made
-	logger.Debug("Example debug message")
-
-	// You can also check the config to prevent running the function if disabled
-	if logger.Config.DebugEnabled {
-		logger.Debug("Example debug message")
-	}
-
-	// You can create child loggers, to include prefixes
-	childLogger := logger.CreateChildLogger("[PREFIX] ")
-
-	// This will log: [PREFIX] Example log message
-	childLogger.Info("Example log message")
-}
