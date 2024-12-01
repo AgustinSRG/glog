@@ -16,7 +16,7 @@ go get github.com/AgustinSRG/glog
 
 In the main function, create a root logger with the `CreateRootLogger(config)` function, passing the configuration as argument, which allows to enable or disable each specific level of log: `ERROR`, `WARNING`, `INFO`, `DEBUG`, `TRACE`.
 
-You can then call the `CreateChildLogger` on the root logger to create logger with the same configuration, but adding a prefix. For example, logs for the example function may have the `[ExampleFunction] ` prefix to better locate the logs.
+You can then call the `CreateChildLogger(prefix)` on the root logger to create logger with the same configuration, but adding a prefix. For example, logs for the example function may have the `[ExampleFunction] ` prefix to better locate the logs.
 
 Once you have the logger, you may call its methods to add logs.
 
